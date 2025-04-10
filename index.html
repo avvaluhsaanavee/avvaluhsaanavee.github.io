@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>أول الثانوي علمي</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="10.png">
+
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa&family=Lateef&family=Montserrat:wght@500;700&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: linear-gradient(135deg, #f0f4ff, #e2e8f0);
+      min-height: 100vh;
+      padding: 30px 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    h1 {
+      font-family: 'Aref Ruqaa', serif;
+      font-size: 42px;
+      margin-bottom: 30px;
+      color: #2c3e50;
+      animation: fadeIn 1.5s ease-out;
+    }
+
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      justify-content: center;
+      animation: fadeIn 1.2s ease-in-out;
+    }
+
+    .card {
+      width: 100%;
+      max-width: 280px;
+      background: white;
+      border-radius: 25px;
+      box-shadow: 0 12px 20px rgba(0,0,0,0.1);
+      overflow: hidden;
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+      animation: slideUp 1s ease forwards;
+      opacity: 0;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .card:nth-child(1) { animation-delay: 0.2s; }
+    .card:nth-child(2) { animation-delay: 0.4s; }
+    .card:nth-child(3) { animation-delay: 0.6s; }
+
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 16px 25px rgba(0,0,0,0.15);
+    }
+
+    .card .text-preview {
+      font-family: 'Lateef', serif;
+      font-size: 24px;
+      color: #2c3e50;
+      margin-bottom: 20px;
+    }
+
+    .download-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      margin: 0 auto;
+      padding: 10px 18px;
+      background-color: #3182ce;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+
+    .download-btn img {
+      width: 20px;
+      height: 20px;
+    }
+
+    .download-btn:hover {
+      background-color: #2563eb;
+      transform: scale(1.05);
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes slideUp {
+      0% {
+        opacity: 0;
+        transform: translateY(40px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Mobile tweaks */
+    @media (max-width: 500px) {
+      h1 {
+        font-size: 28px;
+      }
+
+      .card {
+        max-width: 90%;
+      }
+
+      .download-btn {
+        font-size: 15px;
+        padding: 10px 14px;
+      }
+
+	  .card .text-preview {
+	    font-family: 'Lateef', serif;
+		font-size: 30px;
+		color: #2c3e50;
+	  }
+    }
+	  .footer {
+		font-family: 'Aref Ruqaa', serif;
+		text-align: center;
+		margin-top: 50px;
+		padding: 20px 10px;
+		font-size: 20px;
+		color: #2c3e50;
+		opacity: 0.7;
+		border-top: 1px solid #ccc;
+		width: 100%;
+		max-width: 600px;
+	  }
+  </style>
+</head>
+<body>
+
+  <h1>جمع الدروس لأول الثانوي علمي</h1>
+
+  <div class="container">
+    <div class="card">
+      <div class="text-preview">الفيزياء</div>
+      <a href="file1.pdf" download>
+        <button class="download-btn">
+          <img src="downloads.png" alt="Download">
+        </button>
+      </a>
+    </div>
+
+    <div class="card">
+      <div class="text-preview">الكيمياء</div>
+      <a href="file2.pdf" download>
+        <button class="download-btn">
+          <img src="downloads.png" alt="Download">
+        </button>
+      </a>
+    </div>
+
+    <div class="card">
+      <div class="text-preview">الرياضيات</div>
+      <a href="file3.pdf" download>
+        <button class="download-btn">
+          <img src="downloads.png" alt="Download">
+        </button>
+      </a>
+    </div>
+
+    <div class="card">
+      <div class="text-preview">أحياء</div>
+      <a href="file2.pdf" download>
+        <button class="download-btn">
+          <img src="downloads.png" alt="Download">
+        </button>
+      </a>
+    </div>
+
+    <div class="card">
+      <div class="text-preview">نحو</div>
+      <a href="file2.pdf" download>
+        <button class="download-btn">
+          <img src="downloads.png" alt="Download">
+        </button>
+      </a>
+    </div>
+
+    <div class="card">
+      <div class="text-preview">صرف</div>
+      <a href="file2.pdf" download>
+        <button class="download-btn">
+          <img src="downloads.png" alt="Download">
+        </button>
+      </a>
+    </div>
+
+    <div class="card">
+      <div class="text-preview">بلاغة</div>
+      <a href="file2.pdf" download>
+        <button class="download-btn">
+          <img src="downloads.png" alt="Download">
+        </button>
+      </a>
+    </div>
+
+    <div class="card">
+      <div class="text-preview">إنشاء</div>
+      <a href="file2.pdf" download>
+        <button class="download-btn">
+          <img src="downloads.png" alt="Download">
+        </button>
+      </a>
+    </div>
+
+    <div class="card">
+      <div class="text-preview">قرآن</div>
+      <a href="file2.pdf" download>
+        <button class="download-btn">
+          <img src="downloads.png" alt="Download">
+        </button>
+      </a>
+    </div>
+
+    <div class="card">
+      <div class="text-preview">توحيد</div>
+      <a href="file2.pdf" download>
+        <button class="download-btn">
+          <img src="downloads.png" alt="Download">
+        </button>
+      </a>
+    </div>
+
+    <div class="card">
+      <div class="text-preview">فقه</div>
+      <a href="file2.pdf" download>
+        <button class="download-btn">
+          <img src="downloads.png" alt="Download">
+        </button>
+      </a>
+    </div>
+
+    <div class="card">
+      <div class="text-preview">تفسير</div>
+      <a href="file2.pdf" download>
+        <button class="download-btn">
+          <img src="downloads.png" alt="Download">
+        </button>
+      </a>
+    </div>
+	
+	<div class="card">
+      <div class="text-preview">حديث</div>
+      <a href="file2.pdf" download>
+        <button class="download-btn">
+          <img src="downloads.png" alt="Download">
+        </button>
+      </a>
+    </div>
+  </div>
+  
+  <footer class="footer">
+    حقوق الطبع والنشر لأصحابها الشرعيين
+  </footer>
+</body>
+
+<script>
+  document.querySelectorAll('.card').forEach((card, i) => {
+    card.style.animationDelay = `${0.15 * (i + 1)}s`;
+  });
+</script>
+
+</html>
