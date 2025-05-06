@@ -6,10 +6,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" type="image/png" href="10.png">
 
-
-  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa&family=Lateef&family=Montserrat:wght@500;700&display=swap" rel="stylesheet">
+
+  <script async src="https://tally.so/widgets/embed.js"></script>
 
   <style>
     * {
@@ -130,33 +130,35 @@
         padding: 10px 14px;
       }
 
-	  .card .text-preview {
-	    font-family: 'Lateef', serif;
-		font-size: 30px;
-		color: #2c3e50;
-	  }
+      .card .text-preview {
+        font-family: 'Lateef', serif;
+        font-size: 30px;
+        color: #2c3e50;
+      }
     }
-	  .footer {
-		font-family: 'Aref Ruqaa', serif;
-		text-align: center;
-		margin-top: 50px;
-		padding: 20px 0px;
-		font-size: 20px;
-		color: #2c3e50;
-		opacity: 0.7;
-		border-top: 1px solid #ccc;
-		width: 100%;
-		max-width: 600px;
-	  }
-    
+
+    .footer {
+      font-family: 'Aref Ruqaa', serif;
+      text-align: center;
+      margin-top: 50px;
+      padding: 20px 0px;
+      font-size: 20px;
+      color: #2c3e50;
+      opacity: 0.7;
+      border-top: 1px solid #ccc;
+      width: 100%;
+      max-width: 600px;
+    }
+
     .report-note {
       font-family: 'Aref Ruqaa', serif;
       text-align: center;
       margin-top: 2px;
       padding: 0px;
-      font-size: 14px;
+      font-size: 18px;
       color: #2c3e50;
       opacity: 0.6;
+      cursor: pointer;
     }
   </style>
 </head>
@@ -191,7 +193,7 @@
         </button>
       </a>
     </div>
-	  
+
     <div class="card">
       <div class="text-preview">جبر</div>
       <a href="جبر.pdf" download>
@@ -238,6 +240,33 @@
     </div>
 
     <div class="card">
+      <div class="text-preview">أدب</div>
+      <a href="not-available.pdf" download>
+        <button class="download-btn">
+          <img src="downloads.png" alt="Download">
+        </button>
+      </a>
+    </div>
+
+    <div class="card">
+      <div class="text-preview">نصوص</div>
+      <a href="not-available.pdf" download>
+        <button class="download-btn">
+          <img src="downloads.png" alt="Download">
+        </button>
+      </a>
+    </div>
+
+    <div class="card">
+      <div class="text-preview">مطالعة</div>
+      <a href="not-available.pdf" download>
+        <button class="download-btn">
+          <img src="downloads.png" alt="Download">
+        </button>
+      </a>
+    </div>
+
+    <div class="card">
       <div class="text-preview">إنشاء</div>
       <a href="not-available.pdf" download>
         <button class="download-btn">
@@ -247,7 +276,7 @@
     </div>
 
     <div class="card">
-      <div class="text-preview">قرآن</div>
+      <div class="text-preview">تجويد</div>
       <a href="not-available.pdf" download>
         <button class="download-btn">
           <img src="downloads.png" alt="Download">
@@ -281,8 +310,8 @@
         </button>
       </a>
     </div>
-	
-	<div class="card">
+
+    <div class="card">
       <div class="text-preview">حديث</div>
       <a href="not-available.pdf" download>
         <button class="download-btn">
@@ -291,13 +320,19 @@
       </a>
     </div>
   </div>
-  
+
   <footer class="footer">
     حقوق الطبع والنشر لأصحابها الشرعيين
   </footer>
 
-  <div class="report-note">
-    اتصل على 7471289 للإبلاغ عن أي أخطاء في أي درس
+  <div class="report-note"
+    data-tally-open="3l5NWV"
+    data-tally-layout="modal"
+    data-tally-width="400"
+    data-tally-hide-title="1"
+    data-tally-emoji-animation="none"
+    data-tally-auto-close="2000">
+    انقر هنا للإبلاغ عن خطأ في أي درس
   </div>
 </body>
 
@@ -306,5 +341,4 @@
     card.style.animationDelay = `${0.15 * (i + 1)}s`;
   });
 </script>
-
 </html>
