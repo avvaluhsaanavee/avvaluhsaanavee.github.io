@@ -285,11 +285,10 @@
     </div>
 
     <div class="card">
-      <div class="text-preview">توحيد</div>
-      <a href="not-available.pdf" download>
-        <button class="download-btn">
-          <img src="downloads.png" alt="Download">
-        </button>
+      <div class="text-preview">توحيد</div
+      <button class="download-btn" onclick="openModal('كيمياء', ['كيمياء-الدرس1.pdf', 'كيمياء-الدرس2.pdf'])">
+        <img src="downloads.png" alt="Download">
+      </button>
       </a>
     </div>
 
@@ -334,11 +333,49 @@
     data-tally-auto-close="2000">
     انقر هنا للإبلاغ عن خطأ في أي درس
   </div>
-</body>
 
-<script>
-  document.querySelectorAll('.card').forEach((card, i) => {
-    card.style.animationDelay = `${0.15 * (i + 1)}s`;
-  });
-</script>
+  <div id="downloadModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal()">&times;</span>
+      <h3 id="modal-title">تحميل دروس</h3>
+      <div class="download-list" id="downloadList"></div>
+    </div>
+  </div>
+
+  <script>
+    document.querySelectorAll('.card').forEach((card, i) => {
+      card.style.animationDelay = `${0.15 * (i + 1)}s`;
+    });
+
+    function openModal(subject, files) {
+      const modal = document.getElementById("downloadModal");
+      const title = document.getElementById("modal-title");
+      const list = document.getElementById("downloadList");
+
+      title.innerText = `تحميل دروس ${subject}`;
+      list.innerHTML = "";
+
+      files.forEach((file, index) => {
+        const btn = document.createElement("a");
+        btn.href = file;
+        btn.download = "";
+        btn.innerHTML = `<button class="download-option">الدرس ${index + 1}</button>`;
+        list.appendChild(btn);
+      });
+
+      modal.style.display = "block";
+    }
+
+    function closeModal() {
+      document.getElementById("downloadModal").style.display = "none";
+    }
+
+    window.onclick = function(event) {
+      const modal = document.getElementById("downloadModal");
+      if (event.target === modal) {
+        modal.style.display = "none";
+      }
+    };
+  </script>
+</body>
 </html>
