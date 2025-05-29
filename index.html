@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar">
 <head>
   <meta charset="UTF-8">
   <title>أول الثانوي علمي</title>
@@ -26,6 +26,7 @@
       display: flex;
       flex-direction: column;
       align-items: center;
+      direction: rtl;
     }
 
     h1 {
@@ -57,10 +58,6 @@
       text-align: center;
       padding: 20px;
     }
-
-    .card:nth-child(1) { animation-delay: 0.2s; }
-    .card:nth-child(2) { animation-delay: 0.4s; }
-    .card:nth-child(3) { animation-delay: 0.6s; }
 
     .card:hover {
       transform: translateY(-8px);
@@ -106,34 +103,16 @@
     }
 
     @keyframes slideUp {
-      0% {
-        opacity: 0;
-        transform: translateY(40px);
-      }
-      100% {
-        opacity: 1;
-        transform: translateY(0);
-      }
+      0% { opacity: 0; transform: translateY(40px); }
+      100% { opacity: 1; transform: translateY(0); }
     }
 
     @media (max-width: 500px) {
-      h1 {
-        font-size: 28px;
-      }
-
-      .card {
-        max-width: 90%;
-      }
-
-      .download-btn {
-        font-size: 15px;
-        padding: 10px 14px;
-      }
-
+      h1 { font-size: 28px; }
+      .card { max-width: 90%; }
+      .download-btn { font-size: 15px; padding: 10px 14px; }
       .card .text-preview {
-        font-family: 'Lateef', serif;
         font-size: 30px;
-        color: #2c3e50;
       }
     }
 
@@ -141,7 +120,7 @@
       font-family: 'Aref Ruqaa', serif;
       text-align: center;
       margin-top: 50px;
-      padding: 20px 0px;
+      padding: 20px 0;
       font-size: 20px;
       color: #2c3e50;
       opacity: 0.7;
@@ -154,7 +133,6 @@
       font-family: 'Aref Ruqaa', serif;
       text-align: center;
       margin-top: 2px;
-      padding: 0px;
       font-size: 18px;
       color: #2c3e50;
       opacity: 0.6;
@@ -182,12 +160,17 @@
       max-width: 400px;
       text-align: center;
       box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-      animation: fadeIn 0.4s ease;
+      animation: modalFade 0.4s ease-out;
+    }
+
+    @keyframes modalFade {
+      from { opacity: 0; transform: scale(0.95); }
+      to { opacity: 1; transform: scale(1); }
     }
 
     .close {
       color: #aaa;
-      float: right;
+      float: left;
       font-size: 28px;
       font-weight: bold;
       cursor: pointer;
@@ -223,7 +206,6 @@
     .download-option:hover {
       background-color: #2563eb;
     }
-  </style>
   </style>
 </head>
 <body>
@@ -350,7 +332,7 @@
 
     <div class="card">
       <div class="text-preview">توحيد</div
-      <button class="download-btn" onclick="openModal('كيمياء', ['كيمياء-الدرس1.pdf', 'كيمياء-الدرس2.pdf'])">
+      <button class="download-btn" onclick="openModal('توحيد', ['Thauheed-1.pdf', 'Thauheedh-2.pdf'])">
         <img src="downloads.png" alt="Download">
       </button>
     </div>
@@ -387,6 +369,7 @@
     حقوق الطبع والنشر لأصحابها الشرعيين
   </footer>
 
+
   <div class="report-note"
     data-tally-open="3l5NWV"
     data-tally-layout="modal"
@@ -397,7 +380,7 @@
     انقر هنا للإبلاغ عن خطأ في أي درس
   </div>
 
-  <div id="downloadModal" class="modal">
+  <div id="downloadModal" class="modal" role="dialog" aria-hidden="true">
     <div class="modal-content">
       <span class="close" onclick="closeModal()">&times;</span>
       <h3 id="modal-title">تحميل دروس</h3>
@@ -427,16 +410,19 @@
       });
 
       modal.style.display = "block";
+      modal.setAttribute("aria-hidden", "false");
     }
 
     function closeModal() {
-      document.getElementById("downloadModal").style.display = "none";
+      const modal = document.getElementById("downloadModal");
+      modal.style.display = "none";
+      modal.setAttribute("aria-hidden", "true");
     }
 
     window.onclick = function(event) {
       const modal = document.getElementById("downloadModal");
       if (event.target === modal) {
-        modal.style.display = "none";
+        closeModal();
       }
     };
   </script>
