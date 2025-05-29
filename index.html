@@ -152,6 +152,7 @@
     }
 
     .modal-content {
+      font-family: 'Lateef', serif;
       background-color: #fff;
       margin: 10% auto;
       padding: 20px;
@@ -193,11 +194,12 @@
 
     .download-option {
       background-color: #3182ce;
+      font-family: 'Lateef', serif;
       color: white;
       border: none;
       border-radius: 10px;
       padding: 10px;
-      font-size: 16px;
+      font-size: 20px;
       cursor: pointer;
       transition: background 0.2s ease;
       width: 100%;
@@ -332,7 +334,7 @@
 
     <div class="card">
       <div class="text-preview">توحيد</div>
-      <button class="download-btn" onclick="openModal('توحيد', ['Thauheed-1.pdf', 'Thauheedh-2.pdf'])">
+      <button class="download-btn" onclick="openModal('توحيد', ['toh1.pdf', 'toh2.pdf', 'toh3.pdf'])">
         <img src="downloads.png" alt="Download">
       </button>
     </div>
@@ -380,7 +382,7 @@
     انقر هنا للإبلاغ عن خطأ في أي درس
   </div>
 
-  <div id="downloadModal" class="modal" role="dialog" aria-hidden="true">
+  <div id="downloadModal" class="modal" role="dialog" aria-hidden="true" aria-labelledby="modal-title">
     <div class="modal-content">
       <span class="close" onclick="closeModal()">&times;</span>
       <h3 id="modal-title">تحميل دروس</h3>
