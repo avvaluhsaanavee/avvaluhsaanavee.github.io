@@ -334,7 +334,7 @@
 
     <div class="card">
       <div class="text-preview">توحيد</div>
-      <button class="download-btn" onclick="openModal('توحيد', ['toh1.pdf', 'toh2.pdf', 'toh3.pdf'])">
+      <button class="download-btn" onclick="openModal('توحيد', ['tauh1.pdf', 'tauh2.pdf', 'tauh3.pdf'])">
         <img src="downloads.png" alt="Download">
       </button>
     </div>
@@ -385,7 +385,7 @@
   <div id="downloadModal" class="modal" role="dialog" aria-hidden="true" aria-labelledby="modal-title">
     <div class="modal-content">
       <span class="close" onclick="closeModal()">&times;</span>
-      <h3 id="modal-title">تحميل دروس</h3>
+      <h3 id="modal-title">تحميل</h3>
       <div class="download-list" id="downloadList"></div>
     </div>
   </div>
@@ -400,7 +400,7 @@
       const title = document.getElementById("modal-title");
       const list = document.getElementById("downloadList");
 
-      title.innerText = `تحميل دروس ${subject}`;
+      title.innerText = `دروس ال${subject}`;
       list.innerHTML = "";
 
       files.forEach((file, index) => {
