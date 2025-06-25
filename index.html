@@ -441,7 +441,6 @@
       lessons.forEach((lesson) => {
         const btn = document.createElement("a");
         btn.href = lesson.file;
-        btn.download = "";
         btn.target = "_blank";
         btn.innerHTML = `<button class="download-option">${lesson.name}</button>`;
         list.appendChild(btn);
