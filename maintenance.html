@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/png" href="10.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa&family=Lateef&family=Montserrat:wght@500;700&display=swap" rel="stylesheet">
+  <title>انحن نقوم بتحديث بعض الأشياء!</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html, body {
+      width: 100%;
+      height: 100%;
+      background-color: #e2e8f0;
+      font-family: 'Aref Ruqaa', serif;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .container {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      z-index: 2;
+    }
+
+    h1 {
+      font-size: 7rem;
+      color: #2d3748;
+      margin-bottom: 1rem;
+    }
+
+    p {
+      font-size: 1.5rem;
+      color: #4a5568;
+    }
+
+    canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 0;
+      pointer-events: none;
+    }
+    .home-btn{
+      font-size: 20px;
+      font-family: 'Aref Ruqaa', serif;
+      background-color: #92bdf7;
+      border: none;
+      border-radius: 35px;
+      width: 75%;
+      height: 50px;
+      margin-top: 40px;
+    }
+    .home-btn:hover{
+      background-color: #4392fa;
+      transition: background 0.5s ease;
+    }
+    .blurring {
+      animation: slowblur 10s infinite;
+    }
+    @keyframes slowblur {
+      0% {
+        filter: contrast(1) blur(0);
+      }
+      50% {
+        filter: contrast(2) blur(1px);
+      }
+      100% {
+        filter: contrast(1) blur(0);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1 class='blurring'>تحت الصيانة!</h1>
+    <p>هذا التوقف المؤقت يسمح لنا بتحسين جودة الدروس وبنيتها وتصحيح الأخطاء فيها.
+    </p>
+    <p>
+شكرًا لتفهمكم وصبركم خلال هذه العملية.
+    </p>
+  </div>
+
+  <canvas id="rippleCanvas"></canvas>
+
+  <script>
+    const canvas = document.getElementById('rippleCanvas');
+    const ctx = canvas.getContext('2d');
+    let ripples = [];
+
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    window.addEventListener('resize', () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    });
+
+    document.addEventListener('mousemove', (e) => {
+      createRipple(e.clientX, e.clientY);
+    });
+
+    function createRipple(x, y) {
+      ripples.push({ x, y, radius: 0, alpha: 1 });
+    }
+
+    function draw() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      for (let i = 0; i < ripples.length; i++) {
+        const r = ripples[i];
+        ctx.beginPath();
+        ctx.arc(r.x, r.y, r.radius, 0, Math.PI * 2);
+        ctx.strokeStyle = `rgba(169, 197, 232, ${r.alpha})`;
+        ctx.lineWidth = 5;
+        ctx.stroke();
+
+        r.radius += 1.5;
+        r.alpha -= 0.005;
+
+        if (r.alpha <= 0) {
+          ripples.splice(i, 1);
+          i--;
+        }
+      }
+
+      requestAnimationFrame(draw);
+    }
+
+    draw();
+  </script>
+</body>
+</html>
