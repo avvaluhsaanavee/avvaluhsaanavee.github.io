@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>العد التنازلي - ٢٢ أغسطس ٢٠٢٦</title>
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:ital@0;1&family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    :root{--bg1:#e2e8f0;--accent:#4392fa}
+    body {
+      margin:0;
+      background: linear-gradient(180deg, #e2e8f0 0%, #d8eefc 50%, #e8f6ff 100%);
+      font-family: 'Cairo', sans-serif;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      min-height:100vh;
+      overflow:hidden;
+      position:relative;
+    }
+    canvas#rippleCanvas {
+      position:absolute;
+      inset:0;
+      z-index:0;
+    }
+    .glass { backdrop-filter: blur(6px) saturate(120%); -webkit-backdrop-filter: blur(6px); }
+    @keyframes floaty { 0%{transform: translateY(0px);}50%{transform: translateY(-8px);}100%{transform: translateY(0px);} }
+    @keyframes fadeIn { from{ opacity:0; transform: translateY(8px);} to{ opacity:1; transform: translateY(0);} }
+    @keyframes calmWave { 0%{transform:translateY(0);}50%{transform:translateY(-3px);}100%{transform:translateY(0);} }
+    .fadeIn { animation: fadeIn 1.2s ease both; }
+    .animated-text { display:inline-block; animation: calmWave 5s ease-in-out infinite; }
+    .card {
+      border-radius: 1rem;
+      padding: 1rem;
+      background: linear-gradient(180deg, rgba(255,255,255,0.7), rgba(255,255,255,0.5));
+      text-align:center;
+      box-shadow:0 4px 8px rgba(0,0,0,0.1);
+    }
+    .number {
+      font-size: 2rem;
+      font-weight: bold;
+      font-family: 'Amiri', serif;
+      color:#034b8f;
+      margin-bottom:0.5rem;
+      animation: calmWave 6s ease-in-out infinite;
+    }
+    .label {
+      font-size:1rem;
+      color:#083358;
+    }
+    .grid {
+      display:grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap:1rem;
+    }
+    @media(min-width:768px){
+      .grid { grid-template-columns: repeat(4,1fr);} 
+      .number { font-size:2.5rem; }
+    }
+  </style>
+</head>
+<body>
+  <canvas id="rippleCanvas"></canvas>
+
+  <div class="relative w-full max-w-3xl rounded-2xl overflow-hidden shadow-2xl glass" style="box-shadow:0 20px 40px rgba(67,146,250,0.12); position:relative; z-index:1; border-radius: 50px;">
+    <!-- background animated SVG waves -->
+    <div style="position:absolute; inset:0; pointer-events:none;">
+      <svg viewBox="0 0 1200 400" preserveAspectRatio="none" style="width:100%; height:100%; transform: translateY(10%);">
+        <defs>
+          <linearGradient id="g1" x1="0" x2="1">
+            <stop offset="0%" stop-color="#e2e8f0" stop-opacity="1" />
+            <stop offset="100%" stop-color="#4392fa" stop-opacity="0.06" />
+          </linearGradient>
+        </defs>
+        <g style="opacity:0.65">
+          <path fill="url(#g1)" d="M0,200 C150,260 350,140 600,180 C850,220 1050,140 1200,180 L1200,400 L0,400 Z">
+            <animateTransform attributeName="transform" type="translate" from="0 0" to="-160 0" dur="10s" repeatCount="indefinite" />
+          </path>
+          <path fill="#eaf6ff" d="M0,230 C200,300 400,120 650,180 C900,240 1100,160 1200,200 L1200,400 L0,400 Z" style="opacity:0.7">
+            <animateTransform attributeName="transform" type="translate" from="0 0" to="-220 0" dur="16s" repeatCount="indefinite" />
+          </path>
+          <path fill="#d6ecff" d="M0,250 C250,320 500,140 750,200 C1000,260 1150,180 1200,220 L1200,400 L0,400 Z" style="opacity:0.5">
+            <animateTransform attributeName="transform" type="translate" from="0 0" to="-300 0" dur="22s" repeatCount="indefinite" />
+          </path>
+        </g>
+      </svg>
+    </div>
+
+    <div style="position:relative; padding:2rem; text-align:center; background: linear-gradient(180deg, rgba(255,255,255,0.55), rgba(255,255,255,0.35)); border-radius: 50px;">
+      <h1 class="fadeIn animated-text" style="font-size:2rem; font-family:'Amiri', serif; color:#083358; margin-bottom:0.5rem;">العد التنازلي</h1>
+      <p class="fadeIn" style="color:#0d3b66; margin-bottom:1.5rem;">
+        إلى اليوم: <span class="animated-text" style="font-weight:700;">٢٢ أغسطس ٢٠٢٦</span>
+      </p>
+
+      <div class="grid" id="countdown">
+        <div class="card"><div class="number" id="days">٠٠</div><div class="label">أيام</div></div>
+        <div class="card"><div class="number" id="hours">٠٠</div><div class="label">ساعات</div></div>
+        <div class="card"><div class="number" id="minutes">٠٠</div><div class="label">دقائق</div></div>
+        <div class="card"><div class="number" id="seconds">٠٠</div><div class="label">ثواني</div></div>
+      </div>
+
+      <p style="font-size:0.85rem; opacity:0.8; margin-top:1rem;">التوقيت المحلي</p>
+
+      <div style="margin-top:2rem; animation: floaty 6s ease-in-out infinite;">
+        <svg width="110" height="35" viewBox="0 0 110 35" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M0 22 C20 8 40 32 55 22 C70 12 90 26 110 14" stroke="#4392fa" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" opacity="0.9" />
+        </svg>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Countdown logic
+    const target = new Date(2026, 7, 22, 0, 0, 0);
+    const map = ["٠","١","٢","٣","٤","٥","٦","٧","٨","٩"];
+    function toArabicIndic(num){
+      return String(num).split("").map(c => (c >= '0' && c <= '9' ? map[c.charCodeAt(0)-48] : c)).join("");
+    }
+    function pad(n){ return n.toString().padStart(2,'0'); }
+    function update(){
+      const now = new Date();
+      let diff = Math.max(0, target-now);
+      const days = Math.floor(diff / (1000*60*60*24)); diff -= days*24*60*60*1000;
+      const hours = Math.floor(diff / (1000*60*60)); diff -= hours*60*60*1000;
+      const minutes = Math.floor(diff / (1000*60)); diff -= minutes*60*1000;
+      const seconds = Math.floor(diff/1000);
+      document.getElementById('days').textContent = toArabicIndic(pad(days));
+      document.getElementById('hours').textContent = toArabicIndic(pad(hours));
+      document.getElementById('minutes').textContent = toArabicIndic(pad(minutes));
+      document.getElementById('seconds').textContent = toArabicIndic(pad(seconds));
+    }
+    setInterval(update,1000);
+    update();
+
+    // Ripple canvas effect + leaves
+    const canvas = document.getElementById('rippleCanvas');
+    const ctx = canvas.getContext('2d');
+    let width, height;
+    function resize(){
+      width = canvas.width = window.innerWidth;
+      height = canvas.height = window.innerHeight;
+    }
+    window.addEventListener('resize', resize);
+    resize();
+
+    const ripples = [];
+    const leaves = [];
+
+    // preload small leaves at random positions
+    for(let i=0;i<12;i++){
+      leaves.push({
+        x: Math.random()*width,
+        y: Math.random()*height,
+        drift: (Math.random()*0.3+0.1),
+        angle: Math.random()*Math.PI*2,
+        vx: 0,
+        vy: 0,
+        momentum: 0
+      });
+    }
+
+    document.addEventListener('mousemove', e => {
+      ripples.push({x:e.clientX, y:e.clientY, r:0, alpha:0.4});
+    });
+
+    function animate(){
+      ctx.clearRect(0,0,width,height);
+
+      // draw ripples
+      for(let i=0;i<ripples.length;i++){
+        const rp = ripples[i];
+        ctx.beginPath();
+        ctx.arc(rp.x, rp.y, rp.r, 0, Math.PI*2);
+        ctx.strokeStyle = `rgba(67,146,250,${rp.alpha})`;
+        ctx.lineWidth = 1.3;
+        ctx.stroke();
+        rp.r += 1.3;
+        rp.alpha -= 0.006;
+        if(rp.alpha <= 0){ ripples.splice(i,1); i--; }
+      }
+
+      // draw leaves
+      for(const leaf of leaves){
+        // check ripple influence
+        for(const rp of ripples){
+          const dx = leaf.x - rp.x;
+          const dy = leaf.y - rp.y;
+          const dist = Math.sqrt(dx*dx+dy*dy);
+          if(dist < rp.r+10 && dist > rp.r-10){
+            // add momentum in ripple push direction
+            const pushStrength = 2;
+            leaf.vx += (dx/dist)*pushStrength;
+            leaf.vy += (dy/dist)*pushStrength;
+            leaf.momentum = 1; // reset momentum timer
+            leaf.angle = Math.atan2(leaf.vy, leaf.vx);
+          }
+        }
+
+        // apply momentum decay
+        leaf.vx *= 0.96;
+        leaf.vy *= 0.96;
+
+        // drift movement + momentum
+        leaf.x += leaf.vx + Math.cos(leaf.angle)*leaf.drift;
+        leaf.y += leaf.vy + Math.sin(leaf.angle)*leaf.drift*0.3;
+
+        if(leaf.x>width) leaf.x=0;
+        if(leaf.x<0) leaf.x=width;
+        if(leaf.y>height) leaf.y=0;
+        if(leaf.y<0) leaf.y=height;
+
+        ctx.beginPath();
+        ctx.ellipse(leaf.x, leaf.y, 8, 4, leaf.angle, 0, Math.PI*2);
+        ctx.fillStyle = 'rgba(163,203,255,0.8)';
+        ctx.fill();
+      }
+
+      requestAnimationFrame(animate);
+    }
+    animate();
+  </script>
+</body>
+</html>
