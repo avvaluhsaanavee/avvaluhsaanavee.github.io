@@ -78,6 +78,22 @@
         filter: contrast(1) blur(0);
       }
     }
+    .countdownbtn{
+      font-family: 'Aref Ruqaa', serif;
+      font-size: 15px;
+      color: #2d3748;
+      border: none;
+      border-radius: 20px;
+      margin: 20px;
+      padding: 20px;
+      background-color: rgba(169, 197, 232, .2);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+    }
+    .countdownbtntxt{
+      color: #2d3748;
+      text-decoration: none;
+    }
   </style>
 </head>
 <body>
@@ -91,7 +107,9 @@
   </div>
 
   <canvas id="rippleCanvas"></canvas>
-
+  <footer>
+    <button class="countdownbtn"><a href="countdown.html" class="countdownbtntxt">العد التنازلي</a></button>
+  </footer>
   <script>
     const canvas = document.getElementById('rippleCanvas');
     const ctx = canvas.getContext('2d');
@@ -140,3 +158,4 @@
   </script>
 </body>
 </html>
+
