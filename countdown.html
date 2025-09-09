@@ -163,14 +163,14 @@
     const leaves = [];
 
     // preload small leaves at random positions
-    for(let i=0;i<12;i++){
+    for(let i=0;i<75;i++){
       leaves.push({
         x: Math.random()*width,
         y: Math.random()*height,
         drift: (Math.random()*0.3+0.1),
         angle: Math.random()*Math.PI*2,
         vx: 0,
-        vy: 0,
+        vy: 20,
         momentum: 0
       });
     }
@@ -240,4 +240,5 @@
   </footer>
 </body>
 </html>
+
 
