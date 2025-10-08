@@ -230,7 +230,8 @@
       const password = document.getElementById('password').value;
       signInWithEmailAndPassword(auth, email, password)
         .then(userCredential => {
-          alert('تم تسجيل الدخول كـ ' + userCredential.user.email);
+          alert('Please Continue as ' + userCredential.user.email);
+          window.location.href = 'index.html';
         })
         .catch(error => alert(error.message));
     });
@@ -240,7 +241,7 @@
       const password = document.getElementById('signupPassword').value;
       createUserWithEmailAndPassword(auth, email, password)
         .then(userCredential => {
-          alert('تم إنشاء الحساب: ' + userCredential.user.email);
+          alert('Created an account: ' + userCredential.user.email);
           document.getElementById('signupForm').style.display = 'none';
           document.getElementById('loginForm').style.display = 'block';
         })
