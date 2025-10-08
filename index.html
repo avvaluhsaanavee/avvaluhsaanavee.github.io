@@ -277,7 +277,7 @@
             <img src="map.png" alt="Download">
           </button>
         </a>
-        <a href="404.html">
+        <a href="./404">
           <button class="download-btn na">
             <img src="open.png" alt="Download">
           </button>
@@ -287,7 +287,7 @@
 
     <div class="card">
       <div class="text-preview">كيمياء</div>
-      <a href="404.html">
+        <a href="./404">
         <button class="download-btn na">
             <img src="open.png" alt="Download">
         </button>
@@ -298,7 +298,7 @@
       <div class="text-preview">جبر</div>
     <button class="download-btn" onclick='openModal("جبر", [
       { file: "جبر.pdf", name: "ترم الأول" },
-      { file: "404.html", name: "ترم الثاني" },
+      { file: "./404", name: "ترم الثاني" },
     ])'>
         <img src="open.png" alt="Download">
     </button>
@@ -312,7 +312,7 @@
             <img src="map.png" alt="Download">
           </button>
         </a>
-        <a href="404.html">
+        <a href="./404">
           <button class="download-btn na">
             <img src="open.png" alt="Download">
           </button>
@@ -331,7 +331,7 @@
         <a>
         <button class="download-btn" onclick='openModal("نحو", [
           { file: "10_nahu_firstterm.pdf", name: "ترم الأول" },
-          { file: "404.html", name: "ترم الثاني" },
+          { file: "./404", name: "ترم الثاني" },
         ])'>
             <img src="open.png" alt="Download">
         </button>
@@ -344,7 +344,7 @@
         <a>
         <button class="download-btn" onclick='openModal("صرف", [
           { file: "sorf.pdf", name: "ترم الأول" },
-          { file: "404.html", name: "ترم الثاني" },
+          { file: "./404", name: "ترم الثاني" },
         ])'>
             <img src="open.png" alt="Download">
         </button>
@@ -380,7 +380,7 @@
         <a>
         <button class="download-btn" onclick='openModal("نصوص", [
           { file: "10_nusoos_firstterm.pdf", name: "ترم الأول" },
-          { file: "404.html", name: "ترم الثاني" },
+          { file: "./404", name: "ترم الثاني" },
         ])'>
             <img src="open.png" alt="Download">
         </button>
@@ -392,7 +392,7 @@
         <a>
         <button class="download-btn" onclick='openModal("مطالعة", [
           { file: "10_muthalaa_firstterm.pdf", name: "ترم الأول" },
-          { file: "404.html", name: "ترم الثاني" },
+          { file: "./404", name: "ترم الثاني" },
         ])'>
             <img src="open.png" alt="Download">
         </button>
@@ -404,7 +404,7 @@
         <a>
         <button class="download-btn" onclick='openModal("إنشاء", [
           { file: "إنشاء.pdf", name: "ترم الأول" },
-          { file: "404.html", name: "ترم الثاني" },
+          { file: "./404", name: "ترم الثاني" },
         ])'>
             <img src="open.png" alt="Download">
         </button>
@@ -416,7 +416,7 @@
         <a>
         <button class="download-btn" onclick='openModal("تجويد", [
           { file: "تجويد.pdf", name: "ترم الأول" },
-          { file: "404.html", name: "ترم الثاني" },
+          { file: "./404", name: "ترم الثاني" },
         ])'>
             <img src="open.png" alt="Download">
         </button>
@@ -427,7 +427,7 @@
       <div class="text-preview">توحيد</div>
     <button class="download-btn" onclick='openModal("توحيد", [
       { file: "tauhmerged.pdf", name: "ترم الأول" },
-      { file: "404.html", name: "ترم الثاني" },
+      { file: "./404", name: "ترم الثاني" },
     ])'>
         <img src="open.png" alt="Download">
     </button>
@@ -438,7 +438,7 @@
         <a>
         <button class="download-btn" onclick='openModal("فقه", [
           { file: "10_fiqh_firstterm.pdf", name: "ترم الأول" },
-          { file: "404.html", name: "ترم الثاني" },
+          { file: "./404", name: "ترم الثاني" },
         ])'>
             <img src="open.png" alt="Download">
         </button>
@@ -450,7 +450,7 @@
         <a>
         <button class="download-btn" onclick='openModal("تفسير", [
           { file: "10_thafseer_firstterm.pdf", name: "ترم الأول" },
-          { file: "404.html", name: "ترم الثاني" },
+          { file: "./404", name: "ترم الثاني" },
         ])'>
             <img src="open.png" alt="Download">
         </button>
@@ -461,8 +461,8 @@
       <div class="text-preview">حديث</div>
         <a>
         <button class="download-btn" onclick='openModal("حديث", [
-          { file: "404.html", name: "ترم الأول" },
-          { file: "404.html", name: "ترم الثاني" },
+          { file: "./404", name: "ترم الأول" },
+          { file: "./404", name: "ترم الثاني" },
         ])'>
             <img src="open.png" alt="Download">
         </button>
@@ -521,14 +521,14 @@
 
     onAuthStateChanged(auth, user => {
       if (!user) {
-        window.location.href = 'login.html';
+        window.location.href = './login';
       }
     });
 
     const logoutBtn = document.getElementById('logoutBtn');
     logoutBtn.addEventListener('click', () => {
       signOut(auth).then(() => {
-        window.location.href = 'login.html';
+        window.location.href = './login';
       }).catch(error => alert(error.message));
     });
   </script>
@@ -574,6 +574,5 @@
   </script>
 </body>
 </html>
-
 
 
