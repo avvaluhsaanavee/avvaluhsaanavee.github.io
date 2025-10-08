@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>تسجيل الدخول - أول الثانوي</title>
+  <link href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa&family=Lateef&family=Montserrat:wght@500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --accent: #6366f1;
+    }
+
+    body {
+      margin: 0;
+      background: linear-gradient(180deg, #e2e8f0 0%, #d8eefc 50%, #e8f6ff 100%);
+      font-family: 'Montserrat', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      overflow: hidden;
+      position: relative;
+      direction: rtl;
+    }
+
+    canvas#rippleCanvas {
+      position:absolute;
+      inset:0;
+      z-index:0;
+    }
+
+    .glass {
+      backdrop-filter: blur(8px) saturate(140%);
+      -webkit-backdrop-filter: blur(8px) saturate(140%);
+      background-color: rgba(255, 255, 255, 0.6);
+      border-radius: 20px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+      z-index: 1;
+    }
+
+    .login-container {
+      width: 90%;
+      max-width: 400px;
+      z-index: 2;
+    }
+
+    .login-card {
+      padding: 32px;
+    }
+
+    .login-header {
+      text-align: center;
+      margin-bottom: 32px;
+    }
+
+    .login-header h2 {
+      font-size: 1.875rem;
+      font-weight: 700;
+      color: #1e293b;
+      margin-bottom: 8px;
+      font-family: 'Aref Ruqaa', serif;
+    }
+
+    .login-header p {
+      color: #64748b;
+      font-size: 0.875rem;
+      font-family: 'Lateef', serif;
+    }
+
+    .form-group { margin-bottom: 20px; }
+
+    .input-wrapper {
+      position: relative;
+      width: 100%;
+    }
+
+    .input-wrapper input {
+      width: 100%;
+      font-family: 'Lateef', serif;
+      padding: 16px 16px 8px 16px;
+      font-size: 16px;
+      border: 2px solid #e2e8f0;
+      border-radius: 8px;
+      background-color: white;
+      outline: none;
+      transition: all 0.2s ease;
+      box-sizing: border-box;
+    }
+
+    .input-wrapper label {
+      font-family: 'Lateef', serif;
+      position: absolute;
+      top: 20px;
+      right: 16px;
+      transform: translateY(-50%);
+      font-size: 16px;
+      color: #64748b;
+      pointer-events: none;
+      transition: all 0.2s ease;
+    }
+
+    .input-wrapper input:focus + label,
+    .input-wrapper input:valid + label {
+      top: 4px;
+      font-size: 13px;
+      color: var(--accent);
+      font-weight: 500;
+    }
+
+    .login-btn {
+      width: 100%;
+      background: var(--accent);
+      font-family: 'Lateef', serif;
+      border: none;
+      border-radius: 8px;
+      padding: 12px 24px;
+      color: white;
+      font-size: 20px;
+      font-weight: 300;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      margin-bottom: 24px;
+    }
+
+    .login-btn:hover { background: #4f46e5; }
+
+    p {
+      text-align: center;
+      font-size: 0.9rem;
+      color: #475569;
+      font-family: 'Lateef', serif;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    a:hover {
+      color: #4f46e5;
+    }
+  </style>
+</head>
+
+<body>
+  <canvas id="rippleCanvas"></canvas>
+
+  <div class="login-container glass">
+    <div class="login-card">
+      <div class="login-header">
+        <h2>مرحبا بكم في موقع أول الثانوي</h2>
+        <p>أدخل بياناتك للوصول إلى حسابك</p>
+      </div>
+
+      <form id="loginForm">
+        <div class="form-group">
+          <div class="input-wrapper">
+            <input type="email" id="email" name="email" required autocomplete="email">
+            <label for="email">البريد الإلكتروني</label>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="input-wrapper">
+            <input type="password" id="password" name="password" required autocomplete="current-password">
+            <label for="password">كلمة المرور</label>
+          </div>
+        </div>
+
+        <button type="submit" class="login-btn">تسجيل الدخول</button>
+
+        <p>ليس لديك حساب؟ <a href="#" id="showSignup">إنشاء حساب</a></p>
+      </form>
+
+      <form id="signupForm" style="display:none; margin-top:20px;">
+        <div class="form-group">
+          <div class="input-wrapper">
+            <input type="email" id="signupEmail" required>
+            <label for="signupEmail">البريد الإلكتروني</label>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="input-wrapper">
+            <input type="password" id="signupPassword" required>
+            <label for="signupPassword">كلمة المرور</label>
+          </div>
+        </div>
+
+        <button type="submit" class="login-btn">إنشاء حساب</button>
+        <p>هل لديك حساب بالفعل؟ <a href="#" id="showLogin">تسجيل الدخول</a></p>
+      </form>
+    </div>
+  </div>
+
+  <script type="module">
+    document.getElementById('showSignup').addEventListener('click', e => {
+      e.preventDefault();
+      document.getElementById('loginForm').style.display = 'none';
+      document.getElementById('signupForm').style.display = 'block';
+    });
+
+    document.getElementById('showLogin').addEventListener('click', e => {
+      e.preventDefault();
+      document.getElementById('signupForm').style.display = 'none';
+      document.getElementById('loginForm').style.display = 'block';
+    });
+
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+    import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
+    
+    const firebaseConfig = {
+      apiKey: "AIzaSyCPU6aB0BMPAC_mw4BLBu0naRkFdhl5ZpQ",
+      authDomain: "avvaluhsaanavee.firebaseapp.com",
+      projectId: "avvaluhsaanavee",
+      storageBucket: "avvaluhsaanavee.firebasestorage.app",
+      messagingSenderId: "274473127808",
+      appId: "1:274473127808:web:ac21c010b28b57ca53fb65"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+
+    document.getElementById('loginForm').addEventListener('submit', e => {
+      e.preventDefault();
+      const email = document.getElementById('email').value;
+      const password = document.getElementById('password').value;
+      signInWithEmailAndPassword(auth, email, password)
+        .then(userCredential => {
+          alert('تم تسجيل الدخول كـ ' + userCredential.user.email);
+        })
+        .catch(error => alert(error.message));
+    });
+    document.getElementById('signupForm').addEventListener('submit', e => {
+      e.preventDefault();
+      const email = document.getElementById('signupEmail').value;
+      const password = document.getElementById('signupPassword').value;
+      createUserWithEmailAndPassword(auth, email, password)
+        .then(userCredential => {
+          alert('تم إنشاء الحساب: ' + userCredential.user.email);
+          document.getElementById('signupForm').style.display = 'none';
+          document.getElementById('loginForm').style.display = 'block';
+        })
+        .catch(error => alert(error.message));
+    });
+  </script>
+
+  <script>
+    const canvas = document.getElementById('rippleCanvas');
+    const ctx = canvas.getContext('2d');
+    let width, height;
+    function resize(){
+      width = canvas.width = window.innerWidth;
+      height = canvas.height = window.innerHeight;
+    }
+    window.addEventListener('resize', resize);
+    resize();
+
+    const ripples = [];
+    const leaves = [];
+    for(let i=0;i<75;i++){
+      leaves.push({
+        x: Math.random()*width,
+        y: Math.random()*height,
+        drift: (Math.random()*0.3+0.1),
+        angle: Math.random()*Math.PI*2,
+        vx: 0,
+        vy: 20,
+        momentum: 0
+      });
+    }
+
+    document.addEventListener('mousemove', e => {
+      ripples.push({x:e.clientX, y:e.clientY, r:0, alpha:0.4});
+    });
+
+    function animate(){
+      ctx.clearRect(0,0,width,height);
+
+      for(let i=0;i<ripples.length;i++){
+        const rp = ripples[i];
+        ctx.beginPath();
+        ctx.arc(rp.x, rp.y, rp.r, 0, Math.PI*2);
+        ctx.strokeStyle = `rgba(67,146,250,${rp.alpha})`;
+        ctx.lineWidth = 1.3;
+        ctx.stroke();
+        rp.r += 1.3;
+        rp.alpha -= 0.006;
+        if(rp.alpha <= 0){ ripples.splice(i,1); i--; }
+      }
+
+      for(const leaf of leaves){
+
+        for(const rp of ripples){
+          const dx = leaf.x - rp.x;
+          const dy = leaf.y - rp.y;
+          const dist = Math.sqrt(dx*dx+dy*dy);
+          if(dist < rp.r+10 && dist > rp.r-10){
+
+            const pushStrength = 2;
+            leaf.vx += (dx/dist)*pushStrength;
+            leaf.vy += (dy/dist)*pushStrength;
+            leaf.momentum = 1;
+            leaf.angle = Math.atan2(leaf.vy, leaf.vx);
+          }
+        }
+
+        leaf.vx *= 0.96;
+        leaf.vy *= 0.96;
+
+        leaf.x += leaf.vx + Math.cos(leaf.angle)*leaf.drift;
+        leaf.y += leaf.vy + Math.sin(leaf.angle)*leaf.drift*0.3;
+
+        if(leaf.x>width) leaf.x=0;
+        if(leaf.x<0) leaf.x=width;
+        if(leaf.y>height) leaf.y=0;
+        if(leaf.y<0) leaf.y=height;
+
+        ctx.beginPath();
+        ctx.ellipse(leaf.x, leaf.y, 8, 4, leaf.angle, 0, Math.PI*2);
+        ctx.fillStyle = 'rgba(163,203,255,0.8)';
+        ctx.fill();
+      }
+
+      requestAnimationFrame(animate);
+    }
+    animate();
+  </script>
+</body>
+</html>
