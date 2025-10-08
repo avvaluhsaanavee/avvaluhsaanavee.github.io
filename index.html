@@ -37,6 +37,25 @@
       animation: fadeIn 1.5s ease-out;
     }
 
+    .logout-btn {
+      font-family: 'Aref Ruqaa', serif;
+      background-color: #3182ce;
+      color: white;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 18px;
+      transition: background 0.3s ease;
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      z-index: 1000;
+    }
+    .logout-btn:hover {
+      background-color: #2563eb;
+    }
+
     .container {
       display: flex;
       flex-wrap: wrap;
@@ -228,6 +247,8 @@
 
   <h1>جمع الدروس لأول الثانوي</h1>
 
+  <button id="logoutBtn" class="logout-btn">تسجيل الخروج</button>
+
   <div class="container">
     <div class="card">
       <div class="text-preview">فيزياء</div>
@@ -256,11 +277,12 @@
 
     <div class="card">
       <div class="text-preview">جبر</div>
-      <a href="جبر.pdf" target="_blank">
-        <button class="download-btn">
-            <img src="open.png" alt="Download">
-        </button>
-      </a>
+    <button class="download-btn" onclick='openModal("جبر", [
+      { file: "جبر.pdf", name: "ترم الأول" },
+      { file: "404.html", name: "ترم الثاني" },
+    ])'>
+        <img src="open.png" alt="Download">
+    </button>
     </div>
 
     <div class="card">
@@ -287,89 +309,106 @@
             <img src="map.png" alt="Download">
           </button>
         </a>
-        <a href="10_nahu_firstterm.pdf" target="_blank">
-          <button class="download-btn">
+        <a>
+        <button class="download-btn" onclick='openModal("نحو", [
+          { file: "10_nahu_firstterm.pdf", name: "ترم الأول" },
+          { file: "404.html", name: "ترم الثاني" },
+        ])'>
             <img src="open.png" alt="Download">
-          </button>
+        </button>
         </a>
       </div>
     </div>
 
     <div class="card">
       <div class="text-preview">صرف</div>
-      <a href="sorf.pdf" target= "_blank">
-        <button class="download-btn">
+        <a>
+        <button class="download-btn" onclick='openModal("صرف", [
+          { file: "sorf.pdf", name: "ترم الأول" },
+          { file: "404.html", name: "ترم الثاني" },
+        ])'>
             <img src="open.png" alt="Download">
         </button>
-      </a>
+        </a>
     </div>
 
     <div class="card">
       <div class="text-preview">بلاغة</div>
-      <a href="بلاغة.pdf" target="_blank">
-        <button class="download-btn">
+        <a>
+        <button class="download-btn" onclick='openModal("بلاغة", [
+          { file: "بلاغة.pdf", name: "ترم الأول" },
+          { file: "404.html", name: "ترم الثاني" },
+        ])'>
             <img src="open.png" alt="Download">
         </button>
-      </a>
+        </a>
     </div>
 
     <div class="card">
       <div class="text-preview">أدب</div>
-      <a href="أدب.pdf" target="_blank">
-        <button class="download-btn">
+        <a>
+        <button class="download-btn" onclick='openModal("أدب", [
+          { file: "أدب.pdf", name: "ترم الأول" },
+          { file: "404.html", name: "ترم الثاني" },
+        ])'>
             <img src="open.png" alt="Download">
         </button>
-      </a>
+        </a>
     </div>
 
     <div class="card">
       <div class="text-preview">نصوص</div>
-      <a href="10_nusoos_firstterm.pdf" target="_blank">
-        <button class="download-btn">
+        <a>
+        <button class="download-btn" onclick='openModal("نصوص", [
+          { file: "10_nusoos_firstterm.pdf", name: "ترم الأول" },
+          { file: "404.html", name: "ترم الثاني" },
+        ])'>
             <img src="open.png" alt="Download">
         </button>
-      </a>
+        </a>
     </div>
 
     <div class="card">
       <div class="text-preview">مطالعة</div>
-      <a href="10_muthala'a_firstterm.pdf" target="_blank">
-        <button class="download-btn">
+        <a>
+        <button class="download-btn" onclick='openModal("مطالعة", [
+          { file: "10_muthalaa_firstterm.pdf", name: "ترم الأول" },
+          { file: "404.html", name: "ترم الثاني" },
+        ])'>
             <img src="open.png" alt="Download">
         </button>
-      </a>
+        </a>
     </div>
 
     <div class="card">
       <div class="text-preview">إنشاء</div>
-      <a href="إنشاء.pdf" target="_blank">
-        <button class="download-btn">
+        <a>
+        <button class="download-btn" onclick='openModal("إنشاء", [
+          { file: "إنشاء.pdf", name: "ترم الأول" },
+          { file: "404.html", name: "ترم الثاني" },
+        ])'>
             <img src="open.png" alt="Download">
         </button>
-      </a>
+        </a>
     </div>
 
     <div class="card">
       <div class="text-preview">تجويد</div>
-      <a href="تجويد.pdf" target="_blank">
-        <button class="download-btn">
+        <a>
+        <button class="download-btn" onclick='openModal("تجويد", [
+          { file: "تجويد.pdf", name: "ترم الأول" },
+          { file: "404.html", name: "ترم الثاني" },
+        ])'>
             <img src="open.png" alt="Download">
         </button>
-      </a>
+        </a>
     </div>
 
     <div class="card">
       <div class="text-preview">توحيد</div>
     <button class="download-btn" onclick='openModal("توحيد", [
-      { file: "tauhmerged.pdf", name: "جمعية دروس التوحيد" },
-      { file: "tauh1.pdf", name: "المبادأ العشرة" },
-      { file: "tauh2.pdf", name: "التكليف" },
-      { file: "tauh3.pdf", name: "المعرفة" },
-      { file: "tauh4.pdf", name: "الحكم العقلي" },
-      { file: "tauh5.pdf", name: "التقليد" },
-      { file: "tauh6.pdf", name: "أول ما يجب على المكلف" },
-      { file: "tauh7.pdf", name: "النظر ومسالكه" },
-      { file: "tauh8.pdf", name: "الايمان والاسلام" },
+      { file: "tauhmerged.pdf", name: "ترم الأول" },
+      { file: "404.html", name: "ترم الثاني" },
     ])'>
         <img src="open.png" alt="Download">
     </button>
@@ -377,29 +416,38 @@
 
     <div class="card">
       <div class="text-preview">فقه</div>
-      <a href="10_fiqh_firstterm.pdf" target="_blank">
-        <button class="download-btn">
+        <a>
+        <button class="download-btn" onclick='openModal("فقه", [
+          { file: "10_fiqh_firstterm.pdf", name: "ترم الأول" },
+          { file: "404.html", name: "ترم الثاني" },
+        ])'>
             <img src="open.png" alt="Download">
         </button>
-      </a>
+        </a>
     </div>
 
     <div class="card">
       <div class="text-preview">تفسير</div>
-      <a href="10_thafseer_firstterm.pdf" target="_blank">
-        <button class="download-btn">
+        <a>
+        <button class="download-btn" onclick='openModal("تفسير", [
+          { file: "10_thafseer_firstterm.pdf", name: "ترم الأول" },
+          { file: "404.html", name: "ترم الثاني" },
+        ])'>
             <img src="open.png" alt="Download">
         </button>
-      </a>
+        </a>
     </div>
 
     <div class="card">
       <div class="text-preview">حديث</div>
-      <a href="404.html">
-        <button class="download-btn na">
+        <a>
+        <button class="download-btn" onclick='openModal("حديث", [
+          { file: "404.html", name: "ترم الأول" },
+          { file: "404.html", name: "ترم الثاني" },
+        ])'>
             <img src="open.png" alt="Download">
         </button>
-      </a>
+        </a>
     </div>
 
     <div class="card">
@@ -435,6 +483,36 @@
       <div class="download-list" id="downloadList"></div>
     </div>
   </div>
+
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+    import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyCPU6aB0BMPAC_mw4BLBu0naRkFdhl5ZpQ",
+      authDomain: "avvaluhsaanavee.firebaseapp.com",
+      projectId: "avvaluhsaanavee",
+      storageBucket: "avvaluhsaanavee.firebasestorage.app",
+      messagingSenderId: "274473127808",
+      appId: "1:274473127808:web:ac21c010b28b57ca53fb65"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+
+    onAuthStateChanged(auth, user => {
+      if (!user) {
+        window.location.href = 'login.html';
+      }
+    });
+
+    const logoutBtn = document.getElementById('logoutBtn');
+    logoutBtn.addEventListener('click', () => {
+      signOut(auth).then(() => {
+        window.location.href = 'login.html';
+      }).catch(error => alert(error.message));
+    });
+  </script>
 
   <script>
     document.querySelectorAll('.card').forEach((card, i) => {
