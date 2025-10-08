@@ -4,7 +4,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>تسجيل الدخول - أول الثانوي</title>
-  <link rel="icon" type="image/png" href="10.png">
   <link href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa&family=Lateef&family=Montserrat:wght@500;700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
 
@@ -80,7 +79,7 @@
     .input-wrapper input {
       width: 100%;
       font-family: 'Lateef', serif;
-      padding: 16px 16px 8px 16px;
+      padding: 16px 16px 8px 16px; /* top-right-bottom-left */
       font-size: 16px;
       border: 2px solid #e2e8f0;
       border-radius: 8px;
@@ -176,6 +175,7 @@
         <p>ليس لديك حساب؟ <a href="#" id="showSignup">إنشاء حساب</a></p>
       </form>
 
+      <!-- Sign-up Form -->
       <form id="signupForm" style="display:none; margin-top:20px;">
         <div class="form-group">
           <div class="input-wrapper">
@@ -198,6 +198,7 @@
   </div>
 
   <script type="module">
+    // Toggle Login / Signup
     document.getElementById('showSignup').addEventListener('click', e => {
       e.preventDefault();
       document.getElementById('loginForm').style.display = 'none';
@@ -210,9 +211,11 @@
       document.getElementById('loginForm').style.display = 'block';
     });
 
+    // Firebase imports
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
     import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
-    
+
+    // Firebase Config
     const firebaseConfig = {
       apiKey: "AIzaSyCPU6aB0BMPAC_mw4BLBu0naRkFdhl5ZpQ",
       authDomain: "avvaluhsaanavee.firebaseapp.com",
@@ -225,24 +228,27 @@
     const app = initializeApp(firebaseConfig);
     const auth = getAuth(app);
 
+    // Login
     document.getElementById('loginForm').addEventListener('submit', e => {
       e.preventDefault();
       const email = document.getElementById('email').value;
       const password = document.getElementById('password').value;
       signInWithEmailAndPassword(auth, email, password)
         .then(userCredential => {
-          alert('Please Continue as ' + userCredential.user.email);
-          window.location.href = 'index.html';
+          alert('تم تسجيل الدخول كـ ' + userCredential.user.email);
+          window.location.href = './index';
         })
         .catch(error => alert(error.message));
     });
+
+    // Sign-up
     document.getElementById('signupForm').addEventListener('submit', e => {
       e.preventDefault();
       const email = document.getElementById('signupEmail').value;
       const password = document.getElementById('signupPassword').value;
       createUserWithEmailAndPassword(auth, email, password)
         .then(userCredential => {
-          alert('Created an account: ' + userCredential.user.email);
+          alert('تم إنشاء الحساب: ' + userCredential.user.email);
           document.getElementById('signupForm').style.display = 'none';
           document.getElementById('loginForm').style.display = 'block';
         })
@@ -263,6 +269,7 @@
 
     const ripples = [];
     const leaves = [];
+
     for(let i=0;i<75;i++){
       leaves.push({
         x: Math.random()*width,
@@ -295,13 +302,11 @@
       }
 
       for(const leaf of leaves){
-
         for(const rp of ripples){
           const dx = leaf.x - rp.x;
           const dy = leaf.y - rp.y;
           const dist = Math.sqrt(dx*dx+dy*dy);
           if(dist < rp.r+10 && dist > rp.r-10){
-
             const pushStrength = 2;
             leaf.vx += (dx/dist)*pushStrength;
             leaf.vy += (dy/dist)*pushStrength;
