@@ -306,12 +306,12 @@
 
     <div class="card">
       <div class="text-preview">أحياء</div>
-      <div class="button-group">
-        <a href="ahya_map.pdf" target="_blank">
-          <button class="download-btn">
-            <img src="map.png" alt="Download">
-          </button>
-        </a>
+        <button class="download-btn" onclick='openModal("أحياء", [
+      { file: "./404", name: "ترم الأول" },
+      { file: "./404", name: "ترم الثاني" },
+    ])'>
+          <img src="map.png" alt="Download">
+        </button>
         <a href="./404">
           <button class="download-btn na">
             <img src="open.png" alt="Download">
@@ -574,6 +574,7 @@
   </script>
 </body>
 </html>
+
 
 
 
