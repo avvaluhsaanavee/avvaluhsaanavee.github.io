@@ -26,24 +26,6 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      direction: rtl;
-    }
-
-    h1 {
-      font-family: 'Aref Ruqaa', serif;
-      font-size: 42px;
-      margin-bottom: 30px;
-      color: #2c3e50;
-      animation: fadeIn 1.5s ease-out;
-    }
-    
-    .header {
-      position: relative;
-      width: 100%;
-      max-width: 1200px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
       margin-bottom: 30px;
     }  
 
@@ -306,12 +288,12 @@
 
     <div class="card">
       <div class="text-preview">أحياء</div>
-        <button class="download-btn" onclick='openModal("أحياء", [
-      { file: "./404", name: "ترم الأول" },
-      { file: "tasneef.png", name: "ترم الثاني" },
-    ])'>
-          <img src="map.png" alt="Download">
-        </button>
+      <div class="button-group">
+        <a href="ahya_map.pdf" target="_blank">
+          <button class="download-btn">
+            <img src="map.png" alt="Download">
+          </button>
+        </a>
         <a href="./404">
           <button class="download-btn na">
             <img src="open.png" alt="Download">
@@ -574,6 +556,8 @@
   </script>
 </body>
 </html>
+
+
 
 
 
