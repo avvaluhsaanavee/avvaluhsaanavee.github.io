@@ -259,9 +259,79 @@
       background-color: #ff9999;
       transform: scale(1.05);
     }
+    
+    .whatsNew-modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.45);
+      z-index: 200;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      animation: fadeIn 0.4s ease-out;
+    }
+
+    .whatsNew-content {
+      background: #ffffff;
+      width: 90%;
+      max-width: 420px;
+      padding: 25px 20px;
+      text-align: center;
+      border-radius: 22px;
+      box-shadow: 0 12px 25px rgba(0,0,0,0.2);
+      font-family: 'Aref Ruqaa', serif;
+      animation: popupScale 0.45s ease;
+      position: relative;
+    }
+
+    .whatsNew-content h2 {
+      font-size: 28px;
+      margin-bottom: 15px;
+      color: #2c3e50;
+    }
+
+    .whatsNew-content p {
+      font-family: 'Lateef', serif;
+      font-size: 24px;
+      color: #34495e;
+      line-height: 1.7;
+    }
+
+    .whatsNew-close {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      cursor: pointer;
+      font-size: 30px;
+      color: #888;
+      transition: 0.3s;
+    }
+
+    .whatsNew-close:hover {
+      color: #2c3e50;
+    }
+
+    @keyframes popupScale {
+      0% { transform: scale(0.85); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
   </style>
 </head>
 <body>
+  <div id="whatsNew" class="whatsNew-modal">
+    <div class="whatsNew-content">
+      <span class="whatsNew-close" onclick="closeWhatsNew()">&times;</span>
+      <h2>ما الجديد؟</h2>
+      <p>مطالعة</p>
+      <p>أدب</p>
+      <p>نصوص</p>
+      <p>نحو</p>
+      <p>تفسير</p
+    </div>
+  </div>
 
   <div class="header">
     <button id="logoutBtn" class="logout-btn">تسجيل الخروج</button>
@@ -571,9 +641,25 @@
         closeModal();
       }
     };
+
+    window.addEventListener("load", () => {
+      document.getElementById("whatsNew").style.display = "flex";
+    });
+
+    function closeWhatsNew() {
+      document.getElementById("whatsNew").style.display = "none";
+    }
+
+    window.addEventListener("click", (e) => {
+      const modal = document.getElementById("whatsNew");
+        if (e.target === modal) {
+        closeWhatsNew();
+      }
+    });
   </script>
 </body>
 </html>
+
 
 
 
