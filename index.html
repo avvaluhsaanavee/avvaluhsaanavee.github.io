@@ -179,11 +179,10 @@
     .na { background-color: #e2e8f0; }
     .na:hover { background-color: #ff9999; transform: scale(1.05); }
 
-    /* ===== What's New modal (unique ID and styles) ===== */
     #whatsNewModal {
       display: none;
       position: fixed;
-      z-index: 250; /* above other modals */
+      z-index: 250;
       inset: 0;
       background: rgba(0,0,0,0.45);
       display: flex;
@@ -214,7 +213,7 @@
     .whatsNew-close {
       position: absolute;
       top: 12px;
-      right: 12px; /* right because RTL, sits visually on the edge */
+      right: 12px; 
       background: transparent;
       border: none;
       font-size: 28px;
@@ -225,18 +224,6 @@
       transition: transform .15s ease, color .15s ease;
     }
     .whatsNew-close:hover { transform: rotate(12deg) scale(1.06); color: #111827; }
-
-    .whatsNew-badge {
-      display: inline-block;
-      background: linear-gradient(90deg,#7dd3fc,#60a5fa);
-      color: white;
-      padding: 6px 12px;
-      border-radius: 999px;
-      font-size: 14px;
-      margin-bottom: 12px;
-      box-shadow: 0 6px 18px rgba(99,102,241,0.12);
-      font-family: 'Montserrat', sans-serif;
-    }
 
     .whatsNew-title {
       font-size: 28px;
@@ -525,8 +512,6 @@
 
   <div id="whatsNewModal" aria-hidden="true" role="dialog" aria-labelledby="whatsNewTitle">
       <div class="whatsNew-card" role="document">
-        <button class="whatsNew-close" aria-label="اغلاق" onclick="closeWhatsNew()">×</button>
-        <div class="whatsNew-badge">أول الثانوي</div>
         <div class="whatsNew-title" id="whatsNewTitle">ما الجديد؟</div>
         <div class="whatsNew-text">
           
@@ -631,4 +616,5 @@
   </script>
 </body>
 </html>
+
 
