@@ -177,12 +177,13 @@
     .download-option:hover { background-color: #2563eb; }
     .button-group { display:flex; justify-content:center; gap:10px; flex-wrap:wrap; }
     .na { background-color: #e2e8f0; }
-    .na:hover { background-color: #ff9999; transform: scale(1.05); / }
-    
+    .na:hover { background-color: #ff9999; transform: scale(1.05); }
+
+    /* ===== What's New modal (unique ID and styles) ===== */
     #whatsNewModal {
       display: none;
       position: fixed;
-      z-index: 250;
+      z-index: 250; /* above other modals */
       inset: 0;
       background: rgba(0,0,0,0.45);
       display: flex;
@@ -213,7 +214,7 @@
     .whatsNew-close {
       position: absolute;
       top: 12px;
-      right: 12px;
+      right: 12px; /* right because RTL, sits visually on the edge */
       background: transparent;
       border: none;
       font-size: 28px;
@@ -514,20 +515,18 @@
     اضغط هنا للإبلاغ عن خطأ في أي درس
   </div>
 
-  <div id="whatsNewModal" aria-hidden="true" role="dialog" aria-labelledby="whatsNewTitle">
-    <div class="whatsNew-card" role="document">
-      <div class="whatsNew-title" id="whatsNewTitle">ما الجديد؟</div>
-      <div class="whatsNew-text">
-        تفسير - نحو - مطالعة - أدب - نصوص -التصنيف
-      </div>
-      <div class="whatsNew-actions">
-        <button class="whatsNew-btn btn-secondary" onclick="closeWhatsNew()">x</button>
-      </div>
+  <div id="downloadModal" class="modal" role="dialog" aria-hidden="true" aria-labelledby="modal-title">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal()">&times;</span>
+      <h3 id="modal-title">تحميل</h3>
+      <div class="download-list" id="downloadList"></div>
     </div>
   </div>
 
   <div id="whatsNewModal" aria-hidden="true" role="dialog" aria-labelledby="whatsNewTitle">
       <div class="whatsNew-card" role="document">
+        <button class="whatsNew-close" aria-label="اغلاق" onclick="closeWhatsNew()">×</button>
+        <div class="whatsNew-badge">أول الثانوي</div>
         <div class="whatsNew-title" id="whatsNewTitle">ما الجديد؟</div>
         <div class="whatsNew-text">
           
@@ -632,7 +631,3 @@
   </script>
 </body>
 </html>
-
-
-
-
