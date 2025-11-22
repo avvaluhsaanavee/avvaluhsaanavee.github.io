@@ -1,23 +1,18 @@
 <!DOCTYPE html>
 <html lang="ar">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>أول الثانوي</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" type="image/png" href="10.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/png" href="10.png" />
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa&family=Lateef&family=Montserrat:wght@500;700&display=swap" rel="stylesheet">
 
   <script async src="https://tally.so/widgets/embed.js"></script>
 
   <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
+    * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
       font-family: 'Montserrat', sans-serif;
       background: linear-gradient(135deg, #f0f4ff, #e2e8f0);
@@ -28,7 +23,6 @@
       align-items: center;
       direction: rtl;
     }
-
     h1 {
       font-family: 'Aref Ruqaa', serif;
       font-size: 42px;
@@ -36,7 +30,7 @@
       color: #2c3e50;
       animation: fadeIn 1.5s ease-out;
     }
-    
+
     .header {
       position: relative;
       width: 100%;
@@ -45,7 +39,7 @@
       flex-direction: column;
       align-items: center;
       margin-bottom: 30px;
-    }  
+    }
 
     .logout-btn {
       font-family: 'Aref Ruqaa', serif;
@@ -61,17 +55,11 @@
       top: 0;
       left: 0;
     }
-
-    .logout-btn:hover {
-      background-color: #2563eb;
-    }
+    .logout-btn:hover { background-color: #2563eb; }
 
     .header h1 {
-      font-family: 'Aref Ruqaa', serif;
-      font-size: 42px;
-      color: #2c3e50;
       margin-top: 50px;
-    animation: fadeIn 1.5s ease-out;
+      animation: fadeIn 1.5s ease-out;
     }
 
     .container {
@@ -95,11 +83,7 @@
       text-align: center;
       padding: 20px;
     }
-
-    .card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 16px 25px rgba(0,0,0,0.15);
-    }
+    .card:hover { transform: translateY(-8px); box-shadow: 0 16px 25px rgba(0,0,0,0.15); }
 
     .card .text-preview {
       font-family: 'Lateef', serif;
@@ -123,34 +107,17 @@
       font-size: 16px;
       transition: background-color 0.3s ease, transform 0.3s ease;
     }
+    .download-btn img { width: 20px; height: 20px; }
+    .download-btn:hover { background-color: #2563eb; transform: scale(1.05); }
 
-    .download-btn img {
-      width: 20px;
-      height: 20px;
-    }
-
-    .download-btn:hover {
-      background-color: #2563eb;
-      transform: scale(1.05);
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
-
-    @keyframes slideUp {
-      0% { opacity: 0; transform: translateY(40px); }
-      100% { opacity: 1; transform: translateY(0); }
-    }
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    @keyframes slideUp { 0% { opacity: 0; transform: translateY(40px); } 100% { opacity: 1; transform: translateY(0); } }
 
     @media (max-width: 500px) {
       h1 { font-size: 28px; }
       .card { max-width: 90%; }
       .download-btn { font-size: 15px; padding: 10px 14px; }
-      .card .text-preview {
-        font-size: 30px;
-      }
+      .card .text-preview { font-size: 30px; }
     }
 
     .footer {
@@ -165,7 +132,6 @@
       width: 100%;
       max-width: 600px;
     }
-
     .report-note {
       font-family: 'Aref Ruqaa', serif;
       text-align: center;
@@ -176,6 +142,7 @@
       cursor: pointer;
     }
 
+    /* existing download modal (kept, no change to IDs) */
     .modal {
       display: none;
       position: fixed;
@@ -187,7 +154,6 @@
       overflow: auto;
       background-color: rgba(0,0,0,0.5);
     }
-
     .modal-content {
       font-family: 'Lateef', serif;
       background-color: #fff;
@@ -200,139 +166,123 @@
       box-shadow: 0 10px 25px rgba(0,0,0,0.2);
       animation: modalFade 0.4s ease-out;
     }
-
-    @keyframes modalFade {
-      from { opacity: 0; transform: scale(0.95); }
-      to { opacity: 1; transform: scale(1); }
-    }
-
-    .close {
-      color: #aaa;
-      float: left;
-      font-size: 28px;
-      font-weight: bold;
-      cursor: pointer;
-    }
-
+    @keyframes modalFade { from { opacity: 0; transform: scale(0.95); } to { opacity: 1; transform: scale(1); } }
+    .close { color: #aaa; float: left; font-size: 28px; font-weight: bold; cursor: pointer; }
     .close:hover { color: #333; }
-
-    .modal-content h3 {
-      margin-bottom: 20px;
-      font-family: 'Aref Ruqaa', serif;
-      font-size: 24px;
-      color: #2c3e50;
-    }
-
-    .download-list {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
-
+    .modal-content h3 { margin-bottom: 20px; font-family: 'Aref Ruqaa', serif; font-size: 24px; color: #2c3e50; }
+    .download-list { display: flex; flex-direction: column; gap: 12px; }
     .download-option {
-      background-color: #3182ce;
-      font-family: 'Lateef', serif;
-      color: white;
-      border: none;
-      border-radius: 10px;
-      padding: 10px;
-      font-size: 20px;
-      cursor: pointer;
-      transition: background 0.2s ease;
-      width: 100%;
+      background-color: #3182ce; font-family: 'Lateef', serif; color: white; border: none; border-radius: 10px; padding: 10px; font-size: 20px; cursor: pointer; transition: background 0.2s ease; width: 100%;
     }
+    .download-option:hover { background-color: #2563eb; }
+    .button-group { display:flex; justify-content:center; gap:10px; flex-wrap:wrap; }
+    .na { background-color: #e2e8f0; }
+    .na:hover { background-color: #ff9999; transform: scale(1.05); }
 
-    .download-option:hover {
-      background-color: #2563eb;
-    }
-
-    .button-group {
-      display: flex;
-      justify-content: center;
-      gap: 10px;
-      flex-wrap: wrap;
-    }
-    .na {
-      background-color: #e2e8f0;
-    }
-    .na:hover {
-      background-color: #ff9999;
-      transform: scale(1.05);
-    }
-    
-    .whatsNew-modal {
+    /* ===== What's New modal (unique ID and styles) ===== */
+    #whatsNewModal {
+      display: none;
       position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
+      z-index: 250; /* above other modals */
+      inset: 0;
       background: rgba(0,0,0,0.45);
-      z-index: 200;
       display: flex;
-      justify-content: center;
       align-items: center;
-      animation: fadeIn 0.4s ease-out;
+      justify-content: center;
+      padding: 20px;
     }
 
-    .whatsNew-content {
-      background: #ffffff;
-      width: 90%;
-      max-width: 420px;
-      padding: 25px 20px;
+    .whatsNew-card {
+      background: linear-gradient(180deg, #ffffff 0%, #f7fbff 100%);
+      width: 100%;
+      max-width: 480px;
+      border-radius: 20px;
+      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.25);
+      padding: 26px;
       text-align: center;
-      border-radius: 22px;
-      box-shadow: 0 12px 25px rgba(0,0,0,0.2);
-      font-family: 'Aref Ruqaa', serif;
-      animation: popupScale 0.45s ease;
       position: relative;
+      font-family: 'Aref Ruqaa', serif;
+      transform-origin: center;
+      animation: whatsNewPop .42s cubic-bezier(.2,.9,.2,1);
     }
 
-    .whatsNew-content h2 {
-      font-size: 28px;
-      margin-bottom: 15px;
-      color: #2c3e50;
-    }
-
-    .whatsNew-content p {
-      font-family: 'Lateef', serif;
-      font-size: 24px;
-      color: #34495e;
-      line-height: 1.7;
+    @keyframes whatsNewPop {
+      0% { opacity: 0; transform: translateY(8px) scale(.96); }
+      100% { opacity: 1; transform: translateY(0) scale(1); }
     }
 
     .whatsNew-close {
       position: absolute;
       top: 12px;
-      left: 12px;
+      right: 12px; /* right because RTL, sits visually on the edge */
+      background: transparent;
+      border: none;
+      font-size: 28px;
       cursor: pointer;
-      font-size: 30px;
-      color: #888;
-      transition: 0.3s;
+      color: #6b7280;
+      padding: 6px;
+      line-height: 1;
+      transition: transform .15s ease, color .15s ease;
+    }
+    .whatsNew-close:hover { transform: rotate(12deg) scale(1.06); color: #111827; }
+
+    .whatsNew-badge {
+      display: inline-block;
+      background: linear-gradient(90deg,#7dd3fc,#60a5fa);
+      color: white;
+      padding: 6px 12px;
+      border-radius: 999px;
+      font-size: 14px;
+      margin-bottom: 12px;
+      box-shadow: 0 6px 18px rgba(99,102,241,0.12);
+      font-family: 'Montserrat', sans-serif;
     }
 
-    .whatsNew-close:hover {
-      color: #2c3e50;
+    .whatsNew-title {
+      font-size: 28px;
+      color: #0f172a;
+      margin-bottom: 8px;
+    }
+    .whatsNew-text {
+      font-family: 'Lateef', serif;
+      font-size: 20px;
+      color: #334155;
+      margin-bottom: 16px;
+      line-height: 1.6;
     }
 
-    @keyframes popupScale {
-      0% { transform: scale(0.85); opacity: 0; }
-      100% { transform: scale(1); opacity: 1; }
+    .whatsNew-actions {
+      display:flex;
+      gap:10px;
+      justify-content:center;
+      flex-wrap:wrap;
+      margin-top: 8px;
+    }
+    .whatsNew-btn {
+      border: none;
+      padding: 10px 16px;
+      border-radius: 10px;
+      font-size: 16px;
+      cursor: pointer;
+      font-family: 'Lateef', serif;
+    }
+    .btn-primary {
+      background: linear-gradient(90deg,#2563eb,#06b6d4);
+      color: white;
+      box-shadow: 0 8px 26px rgba(37,99,235,0.14);
+    }
+    .btn-secondary {
+      background: #eef2ff;
+      color: #0f172a;
+    }
+
+    @media (max-width:420px) {
+      .whatsNew-title { font-size: 22px; }
+      .whatsNew-text { font-size: 18px; }
     }
   </style>
 </head>
 <body>
-  <div id="whatsNew" class="whatsNew-modal">
-    <div class="whatsNew-content">
-      <span class="whatsNew-close" onclick="closeWhatsNew()">&times;</span>
-      <h2>ما الجديد؟</h2>
-      <p>مطالعة</p>
-      <p>أدب</p>
-      <p>نصوص</p>
-      <p>نحو</p>
-      <p>تفسير</p
-    </div>
-  </div>
-
   <div class="header">
     <button id="logoutBtn" class="logout-btn">تسجيل الخروج</button>
     <h1>جمع الدروس لأول الثانوي</h1>
@@ -573,6 +523,21 @@
     </div>
   </div>
 
+  <div id="whatsNewModal" aria-hidden="true" role="dialog" aria-labelledby="whatsNewTitle">
+      <div class="whatsNew-card" role="document">
+        <button class="whatsNew-close" aria-label="اغلاق" onclick="closeWhatsNew()">×</button>
+        <div class="whatsNew-badge">ما الجديد</div>
+        <div class="whatsNew-title" id="whatsNewTitle">✨ تحديثات الموقع</div>
+        <div class="whatsNew-text">
+          مرحباً! لقد أضفنا دروس جديدة وتحسينات في التصميم. اضغط على زر "تصفح الآن" لرؤية الملفات المضافَة.
+        </div>
+        <div class="whatsNew-actions">
+          <a href="#container"><button class="whatsNew-btn btn-primary" onclick="closeWhatsNew()">تصفح الآن</button></a>
+          <button class="whatsNew-btn btn-secondary" onclick="closeWhatsNew()">اغلاق</button>
+        </div>
+      </div>
+    </div>
+  
   <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
     import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
@@ -608,6 +573,7 @@
       card.style.animationDelay = `${0.15 * (i + 1)}s`;
     });
 
+
     function openModal(subject, lessons) {
       const modal = document.getElementById("downloadModal");
       const title = document.getElementById("modal-title");
@@ -628,7 +594,6 @@
       modal.setAttribute("aria-hidden", "false");
     }
 
-
     function closeModal() {
       const modal = document.getElementById("downloadModal");
       modal.style.display = "none";
@@ -640,30 +605,30 @@
       if (event.target === modal) {
         closeModal();
       }
-    };
-
-    window.addEventListener("load", () => {
-      document.getElementById("whatsNew").style.display = "flex";
-    });
-
-    function closeWhatsNew() {
-      document.getElementById("whatsNew").style.display = "none";
-    }
-
-    window.addEventListener("click", (e) => {
-      const modal = document.getElementById("whatsNew");
-        if (e.target === modal) {
+      
+      const whatsModal = document.getElementById("whatsNewModal");
+      if (event.target === whatsModal) {
         closeWhatsNew();
       }
+    };
+
+    function showWhatsNew() {
+      const modal = document.getElementById("whatsNewModal");
+      if (!modal) return;
+      modal.style.display = "flex";
+      modal.setAttribute("aria-hidden", "false");
+    }
+
+    function closeWhatsNew() {
+      const modal = document.getElementById("whatsNewModal");
+      if (!modal) return;
+      modal.style.display = "none";
+      modal.setAttribute("aria-hidden", "true");
+    }
+
+    window.addEventListener('load', function() {
+      setTimeout(() => showWhatsNew(), 220);
     });
   </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
