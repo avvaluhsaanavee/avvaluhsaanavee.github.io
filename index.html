@@ -502,14 +502,15 @@
     اضغط هنا للإبلاغ عن خطأ في أي درس
   </div>
 
-  <div id="downloadModal" class="modal" role="dialog" aria-hidden="true" aria-labelledby="modal-title">
-    <div class="modal-content">
+  <div id="whatsNewModal" aria-hidden="true" role="dialog" aria-labelledby="whatsNewTitle">
+    <div class="whatsNew-card" role="document">
+      <div class="whatsNew-title" id="whatsNewTitle">ما الجديد؟</div>
       <div class="whatsNew-text">
-        تفسير - نحو - مطالعة - أدب - نصوص
+        تفسير - نحو - مطالعة - أدب - نصوص -التصنيف
       </div>
-      <span class="close" onclick="closeModal()">&times;</span>
-      <h3 id="modal-title">تحميل</h3>
-      <div class="download-list" id="downloadList"></div>
+      <div class="whatsNew-actions">
+        <button class="whatsNew-btn btn-secondary" onclick="closeWhatsNew()">x</button>
+      </div>
     </div>
   </div>
 
@@ -619,6 +620,7 @@
   </script>
 </body>
 </html>
+
 
 
 
