@@ -137,12 +137,11 @@
       text-align: center;
       margin-top: 2px;
       font-size: 18px;
-      color: #2c3e50;
+      color: #FF0000;
       opacity: 0.6;
       cursor: pointer;
     }
 
-    /* existing download modal (kept, no change to IDs) */
     .modal {
       display: none;
       position: fixed;
@@ -179,11 +178,10 @@
     .na { background-color: #e2e8f0; }
     .na:hover { background-color: #ff9999; transform: scale(1.05); }
 
-    /* ===== What's New modal (unique ID and styles) ===== */
     #whatsNewModal {
       display: none;
       position: fixed;
-      z-index: 250; /* above other modals */
+      z-index: 250;
       inset: 0;
       background: rgba(0,0,0,0.45);
       display: flex;
@@ -214,7 +212,7 @@
     .whatsNew-close {
       position: absolute;
       top: 12px;
-      right: 12px; /* right because RTL, sits visually on the edge */
+      right: 12px;
       background: transparent;
       border: none;
       font-size: 28px;
@@ -316,7 +314,7 @@
 
     <div class="card">
       <div class="text-preview">جبر</div>
-    <button class="download-btn na" onclick='openModal("جبر", [
+    <button class="download-btn" onclick='openModal("جبر", [
       { file: "جبر.pdf", name: "ترم الأول" },
       { file: "./404", name: "ترم الثاني" },
     ])'>
@@ -362,7 +360,7 @@
     <div class="card">
       <div class="text-preview">صرف</div>
         <a>
-        <button class="download-btn na" onclick='openModal("صرف", [
+        <button class="download-btn" onclick='openModal("صرف", [
           { file: "sorf.pdf", name: "ترم الأول" },
           { file: "./404", name: "ترم الثاني" },
         ])'>
@@ -374,7 +372,7 @@
     <div class="card">
       <div class="text-preview">بلاغة</div>
         <a>
-        <button class="download-bt na" onclick='openModal("بلاغة", [
+        <button class="download-btn" onclick='openModal("بلاغة", [
           { file: "بلاغة.pdf", name: "ترم الأول" },
           { file: "404.html", name: "ترم الثاني" },
         ])'>
@@ -422,7 +420,7 @@
     <div class="card">
       <div class="text-preview">إنشاء</div>
         <a>
-        <button class="download-btn na" onclick='openModal("إنشاء", [
+        <button class="download-btn" onclick='openModal("إنشاء", [
           { file: "إنشاء.pdf", name: "ترم الأول" },
           { file: "./404", name: "ترم الثاني" },
         ])'>
@@ -434,7 +432,7 @@
     <div class="card">
       <div class="text-preview">تجويد</div>
         <a>
-        <button class="download-btn na" onclick='openModal("تجويد", [
+        <button class="download-btn" onclick='openModal("تجويد", [
           { file: "تجويد.pdf", name: "ترم الأول" },
           { file: "./404", name: "ترم الثاني" },
         ])'>
@@ -445,7 +443,7 @@
 
     <div class="card">
       <div class="text-preview">توحيد</div>
-    <button class="download-btn na" onclick='openModal("توحيد", [
+    <button class="download-btn" onclick='openModal("توحيد", [
       { file: "tauhmerged.pdf", name: "ترم الأول" },
       { file: "./404", name: "ترم الثاني" },
     ])'>
@@ -456,7 +454,7 @@
     <div class="card">
       <div class="text-preview">فقه</div>
         <a>
-        <button class="download-btn na" onclick='openModal("فقه", [
+        <button class="download-btn" onclick='openModal("فقه", [
           { file: "10_fiqh_firstterm.pdf", name: "ترم الأول" },
           { file: "./404", name: "ترم الثاني" },
         ])'>
@@ -480,7 +478,7 @@
     <div class="card">
       <div class="text-preview">حديث</div>
         <a>
-        <button class="download-btn na" onclick='openModal("حديث", [
+        <button class="download-btn" onclick='openModal("حديث", [
           { file: "./404", name: "ترم الأول" },
           { file: "./404", name: "ترم الثاني" },
         ])'>
@@ -505,7 +503,7 @@
   </footer>
 
 
-  <div style="color: #FFOOOO;" class="report-note"
+  <div class="report-note"
     data-tally-open="3l5NWV"
     data-tally-layout="modal"
     data-tally-width="400"
@@ -629,7 +627,5 @@
   </script>
 </body>
 </html>
-
-
 
 
